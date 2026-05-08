@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BETTING SITE | ytbets.com</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+}
+
+.hero{
+background:url('https://i.ibb.co/XTyk5rB/upload-1778242487675-e598d584-jpg.jpg') center/cover no-repeat;
+min-height:100vh;
+padding:20px;
+}
+
+.overlay{
+background:rgba(0,0,0,.75);
+min-height:100vh;
+padding:20px;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{
+width:60px;
+height:60px;
+border-radius:50%;
+}
+
+.logo h1{
+color:gold;
+font-size:28px;
+}
+
+.whatsapp-btn{
+background:gold;
+color:black;
+padding:10px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.hero-text{
+text-align:center;
+margin-top:50px;
+}
+
+.hero-text h2{
+font-size:50px;
+color:gold;
+}
+
+.hero-text p{
+margin:20px 0;
+font-size:20px;
+}
+
+.btn{
+padding:15px 30px;
+margin:10px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.gold{
+background:gold;
+color:black;
+}
+
+.sections{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-top:50px;
+}
+
+.card{
+background:#111;
+border:1px solid gold;
+padding:20px;
+text-align:center;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+background:#1a1a1a;
+}
+
+.content{
+display:none;
+margin-top:30px;
+background:#111;
+padding:20px;
+border-radius:10px;
+border:1px solid gold;
+}
+
+.payment-box{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#111;
+padding:30px;
+border:2px solid gold;
+border-radius:10px;
+z-index:999;
+text-align:center;
+}
+
+.payment-box button{
+margin-top:20px;
+padding:10px 20px;
+background:gold;
+border:none;
+}
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#111;
+display:flex;
+justify-content:space-around;
+padding:10px;
+border-top:1px solid gold;
+}
+
+.bottom-nav button{
+background:none;
+border:none;
+color:gold;
+font-size:16px;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+.hero-text h2{
+font-size:35px;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<div class="overlay">
+
+<nav>
+<div class="logo">
+<img src="https://i.ibb.co/kgm32MTd/upload-1778242198036-7133509e-jpg.jpg">
+<h1>BETTING SITE</h1>
+</div>
+
+<button class="whatsapp-btn"
+onclick="window.open('https://whatsapp.com/channel/0029VbC4VqvEawdvnMWC6m3U')">
+Join WhatsApp
+</button>
+</nav>
+
+<div class="hero-text">
+<h2>BET TODAY WIN TOMORROW</h2>
+<p>Free Odds | VIP Odds | Mines Signals</p>
+<button class="btn gold" onclick="showPayment()">JOIN VIP</button>
+</div>
+
+<div class="sections">
+<div class="card" onclick="openSection('free')">FREE ODDS</div>
+<div class="card" onclick="openSection('vip')">VIP ODDS</div>
+<div class="card" onclick="openSection('mines')">MINES SIGNALS</div>
+<div class="card" onclick="openSection('live')">LIVE MATCHES</div>
+</div>
+
+<div id="free" class="content">
+<h2>FREE ODDS</h2>
+<p>Simba vs Yanga — Over 2.5 — 2.10</p>
+</div>
+
+<div id="vip" class="content">
+<h2>VIP ODDS</h2>
+<p>Pay first to unlock VIP code.</p>
+</div>
+
+<div id="mines" class="content">
+<h2>MINES SIGNALS</h2>
+<p>Daily mines signals available.</p>
+</div>
+
+<div id="live" class="content">
+<h2>LIVE MATCHES</h2>
+<p>Live scores coming soon...</p>
+</div>
+
+</div>
+</div>
+
+<div class="payment-box" id="paymentBox">
+<h2 style="color:gold;">PAYMENT</h2>
+<p>Send payment to:</p>
+<h1>+255793785960</h1>
+<p>Then DM for your VIP code.</p>
+<button onclick="closePayment()">Close</button>
+</div>
+
+<div class="bottom-nav">
+<button onclick="openSection('free')">Home</button>
+<button onclick="openSection('free')">Odds</button>
+<button onclick="openSection('vip')">VIP</button>
+<button onclick="openSection('mines')">Mines</button>
+<button onclick="openSection('live')">Live</button>
+</div>
+
+<script>
+function openSection(id){
+document.querySelectorAll('.content').forEach(x=>{
+x.style.display='none';
+});
+document.getElementById(id).style.display='block';
+window.scrollTo({
+top:700,
+behavior:'smooth'
+});
+}
+
+function showPayment(){
+document.getElementById('paymentBox').style.display='block';
+}
+
+function closePayment(){
+document.getElementById('paymentBox').style.display='none';
+}
+</script>
+
+</body>
+</html>
